@@ -1,0 +1,12 @@
+helps in running clang with c++11  
+https://stackoverflow.com/questions/39022787/error-non-aggregate-type-vectorint-cannot-be-initialized-with-an-initialize/39022883....
+do this when Compiling
+g++ -std=c++11 <filename>
+
+
+isPrime & Sieve function great explanation in :
+https://leetcode.com/explore/challenge/card/may-leetcoding-challenge-2021/599/week-2-may-8th-may-14th/3738/
+Solved: LEETCODE/Daily/CountPrimes.cpp
+
+
+
