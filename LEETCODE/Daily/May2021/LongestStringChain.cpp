@@ -30,15 +30,12 @@ using namespace std;
        }
        for(int i=16;i>1;i--){
            for(auto&itr:m[i]){
-               out(i);
-               out("val");
+               
                out(m[i][itr.first]);
                for(int j=0;j<itr.first.size();j++){
                    string s=itr.first.substr(0,j)+itr.first.substr(j+1);
                     if(seti.count(s)){
-                        if(m[i-1][s]>=16-i+1){
-                            continue;
-                        }
+                       
                         m[i-1][s]=max(itr.second+1,m[i-1][s]);
                         ans=max(ans,m[i-1][s]);
                     }

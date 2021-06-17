@@ -36,13 +36,15 @@ ll gcd(ll a, ll b) {
         while(true){
             
             if(q.top()==1) return true;
-            int top=q.top();
+            long long int top=q.top();
             q.pop();
-            ll curSum=sum-top;
-            ll newElem=top-curSum;
-            if(newElem<=0 ){
+            long long int curSum=sum-top;
+            long long int newElem=top-curSum;
+            if(newElem<=0 || curSum<=0){
                 return false;
             }
+            int n=max(1ll,(top-q.top())/curSum);
+            newElem=top-(n*curSum);
             q.push(newElem);
             sum-=top;
             sum+=newElem;

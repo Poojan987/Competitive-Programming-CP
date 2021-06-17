@@ -86,82 +86,7 @@ void dfs(int index)
 //     if(currN==n) return cost;
 //     return min({solve(n,currN+1,e-2,h,cost+a,a,b,c),solve(n,currN+1,e,h-3,cost+b,a,b,c),solve(n,currN+1,e-1,h-1,cost+c,a,b,c)}) ;
 // }
-ll solve(ll n, ll e, ll h, ll a, ll b, ll c)
-{
-    ll hey=1000000000000000;
-    if (n <= 0) return 0;
-    ll maxi = 1000000000000000;
-    set<ll>s;
 
-    vector<ll>ve;
-    s.insert(a);
-    s.insert(b);
-    s.insert(c);
-
-
-    
-    
-    
-    // ll minimum=min({a,b,c});
-    unordered_map<ll,ll>um;
-
-     if ((e / 2 >= 1) && (e / 2 >= (3 * n - h + 2) / 3))
-    {
-        if ((a - b) >= 0)
-        {
-            um[a-b]=e/2;
-            hey = max((ll)1, (3 * n - h + 2) / 3);
-        }
-        else
-        {
-            hey = min(n - 1, e / 2);
-        }
-        maxi = min(maxi, (a - b) * hey + n * b);
-    }
-    else
-    {
-        ve.push_back(a-b);
-        }
-    if (((e - n) >= 1) && ((e - n) >= (n - h)))
-    {
-        if ((a - c) >= 0)
-        {
-            um[a-c]=e-n;
-            hey = max((ll)1, n - h);
-        }
-        else
-        {
-            hey = min(n - 1, e - n);
-        }
-        ve.push_back(a-c);
-        maxi = min( (a - c) * hey + n * c,maxi);
-    }else{
-        ve.push_back(a-c);
-    }
-    if (((h - n) / 2 >= 1) && ((h - n) / 2 >= (n - e)))
-    {
-        if ((b - c) >= 0)
-            hey = max((ll)1, n - e);
-        
-        else hey = min(n - 1, (h - n) / 2);
-        
-        maxi = min( (b - c) * hey + n * c,maxi);
-    }else{ve.push_back(b-c);}
-
-   if (2 * n <= e) maxi = min(maxi, n * a);
-    
-    if (3 * n <= h) maxi = min(maxi, n * b);
-    
-    
-    if (n <= e && n <= h) maxi = min(maxi, n * c);
-
-    if (n >= 3 && h >= 4 && e >= 3 )
-    {
-        maxi = min( a + b + c + solve(n - 3, e - 3, h - 4,a,b,c),maxi);
-    }
-
-    return maxi;
-}
 int main()
 {
     // ios_base::sync_with_stdio(false);
@@ -171,21 +96,21 @@ int main()
     in(t);
     while (t--)
     {
-        ll n, e, h, a, b, c;
-        cin >> n >> e >> h >> a >> b >> c;
+       int x1,x2,y1,y2;
+       cin>>x1>>y1>>x2>>y2;
+        ll sum1=0,sum2=0;
+        for(int i=x1){
 
-        ll maxi = 0;
-        maxi=h^h;
-        
-        
-        
-        maxi = solve(n, e, h, a, b, c);
-        if (maxi == 1000000000000000)
-        
-        {
-            maxi = -1;
         }
-        out(maxi);
+       for(int i=x1;i<=x2;i++){
+           sum1+=(((i*(i+1))/2)+((y1*(y1+1))/2));
+           out(sum1);
+       }
+       for(int j=y1;j<=y2;j++){
+           sum2+=(((j*(j+1))/2)+((x2*(x2+1))/2));
+           out(sum2);
+       }
+       out(sum1+sum2);
     }
 
     return 0;
