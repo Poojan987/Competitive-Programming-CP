@@ -21,7 +21,6 @@ using namespace std;
 
 int numSubarrayBoundedMax(vector<int>& nums, int left, int right) {
         int n=nums.size();
-        int maxi=nums[0];
         int ans=0;
         int tp=0;
         for(int i=0;i<n;i++){
@@ -32,8 +31,6 @@ int numSubarrayBoundedMax(vector<int>& nums, int left, int right) {
                 
             }
             else{
-//                 nums[i]<left
-                
                 int z=1;
                 tp++;
                 while(i+1<n && nums[i+1]<left){
@@ -42,12 +39,12 @@ int numSubarrayBoundedMax(vector<int>& nums, int left, int right) {
                     i++;
                 }
                 ans-=(z*(z+1))/2;
-                
             }
         }
         if(tp>0)ans+=(tp*(tp+1))/2;
         return ans;
-    }
+}
+
     int numSubarrayBoundedMax(vector<int>& nums, int left, int right) {
         int n=nums.size();
         int tp1=0,tp2=0;
