@@ -29,8 +29,23 @@ int main()
     in(t);
     while (t--)
     {
-        int n;
-        in(n);
+        int x1,x2,y1,y2,f1,f2;
+        cin>>x1>>y1>>x2>>y2>>f1>>f2;
+
+        int tp1=max(x1,x2)-min(x1,x2);
+        int tp2=max(y1,y2)-min(y1,y2);
+        if(f1==x1 && f1==x2){
+            if(f2<(max(y1,y2))&&f2>min(y1,y2)){
+                tp1+=2;
+            }
+        }
+        else if(f2==y1 && f2==y2){
+            if(f1<(max(x1,x2))&&f1>min(x1,x2)){
+                tp1+=2;
+            }
+        }
+        // out("hello");
+        out(tp1+tp2);
         
     }
 }

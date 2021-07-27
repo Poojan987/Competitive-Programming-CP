@@ -55,7 +55,7 @@ int minRefuelStops1(int target, int startFuel, vector<vector<int>>& stations) {
         else{
             while(stations[i][0]<startFuel){
                 if(q.size()==0) return -1;
-                int tp=q.top();
+                int tp=q.top(); 
                 q.pop();
                 startFuel+=tp;
                 c++;
