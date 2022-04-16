@@ -1,1 +1,0 @@
-print 'a' or 'c' or 'b'
